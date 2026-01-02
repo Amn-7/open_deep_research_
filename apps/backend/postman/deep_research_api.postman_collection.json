@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Deep Research API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8000/api/research" },
+    { "key": "researchId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Start Research",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/start", "host": ["{{baseUrl}}"], "path": ["start"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Explain the impact of AI on drug discovery\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Continue Research",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/{{researchId}}/continue",
+          "host": ["{{baseUrl}}"],
+          "path": ["{{researchId}}", "continue"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Include recent breakthroughs and key companies\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Upload Document",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/{{researchId}}/upload",
+          "host": ["{{baseUrl}}"],
+          "path": ["{{researchId}}", "upload"]
+        },
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "file", "type": "file", "src": "" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Research History",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/history", "host": ["{{baseUrl}}"], "path": ["history"] }
+      }
+    },
+    {
+      "name": "Research Detail",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/{{researchId}}", "host": ["{{baseUrl}}"], "path": ["{{researchId}}"] }
+      }
+    }
+  ]
+}

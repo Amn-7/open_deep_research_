@@ -57,6 +57,16 @@ This will open the LangGraph Studio UI in your browser.
 
 Ask a question in the `messages` input field and click `Submit`. Select different configuration in the "Manage Assistants" tab.
 
+### 🧰 Backend API (Django)
+
+This repo includes a Django REST backend that wraps the Open Deep Research agent with persistence, continuation, uploads, tracing, and cost tracking.
+See `apps/backend/README.md` for setup, environment variables, and API details.
+
+### 📁 Repository Layout
+- `apps/backend/` — Django REST API + Celery worker
+- `apps/frontend/` — static test console for the API
+- `src/` — Open Deep Research agent library
+
 ### ⚙️ Configurations
 
 #### LLM :brain:

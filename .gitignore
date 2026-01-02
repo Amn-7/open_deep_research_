@@ -50,6 +50,10 @@ htmlcov/
 *.log
 logs/
 
+# Django media/db
+apps/backend/media/
+apps/backend/db.sqlite3
+
 # Local development
 .env.local
 .env.development.local

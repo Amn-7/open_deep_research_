@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Research Test Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <main class="shell">
+      <header class="hero">
+        <div class="badge">Open Deep Research</div>
+        <h1>Research API Test Console</h1>
+        <p>
+          Run deep research, upload context, continue runs, and inspect results without
+          Postman. Keep the backend running at the base URL below.
+        </p>
+      </header>
+
+      <section class="panel">
+        <div class="field">
+          <label for="baseUrl">API Base URL</label>
+          <input
+            id="baseUrl"
+            type="text"
+            value="http://127.0.0.1:8000/api/research"
+          />
+        </div>
+        <div class="field inline">
+          <div>
+            <label for="activeId">Active Research ID</label>
+            <input id="activeId" type="text" placeholder="auto-filled after start" />
+          </div>
+          <button class="ghost" id="useLastId">Use Last ID</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Start Research</h2>
+          <label for="startQuery">Query</label>
+          <textarea id="startQuery" rows="4" placeholder="What are the latest updates with Nvidia?"></textarea>
+          <label for="parentId">Parent Research ID (optional)</label>
+          <input id="parentId" type="text" placeholder="parent id" />
+          <button id="startBtn">Start Research</button>
+        </div>
+
+        <div class="panel">
+          <h2>Upload Document</h2>
+          <label for="uploadFile">TXT or PDF</label>
+          <input id="uploadFile" type="file" accept=".txt,.pdf" />
+          <button id="uploadBtn">Upload</button>
+          <p class="hint">Uploads are linked to the active research ID.</p>
+        </div>
+
+        <div class="panel">
+          <h2>Continue Research</h2>
+          <label for="continueQuery">Follow-up Query</label>
+          <textarea
+            id="continueQuery"
+            rows="4"
+            placeholder="Add regulatory updates and major partnerships since 2023."
+          ></textarea>
+          <button id="continueBtn">Continue</button>
+        </div>
+
+        <div class="panel">
+          <h2>Research Detail</h2>
+          <label for="detailId">Research ID</label>
+          <input id="detailId" type="text" placeholder="use active id or enter" />
+          <div class="row">
+            <button id="detailBtn">Fetch Detail</button>
+            <button class="ghost" id="pollBtn">Poll Status</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>History</h2>
+          <p class="hint">List past research sessions for the dev user.</p>
+          <button id="historyBtn">Fetch History</button>
+        </div>
+      </section>
+
+      <section class="panel output">
+        <div class="output-head">
+          <h2>Response</h2>
+          <div class="row">
+            <button class="ghost" id="copyBtn">Copy JSON</button>
+            <button class="ghost" id="clearBtn">Clear</button>
+          </div>
+        </div>
+        <pre id="output">Waiting for a request...</pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
